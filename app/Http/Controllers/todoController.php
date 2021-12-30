@@ -145,7 +145,14 @@ class todoController extends Controller
     {
         //
 
-        $data = todo::find($id);
+//
+//        $data•=-todo: :find ($id):
+//•if(strtotime($data[*enddate'])-›-strtotime$request-›enddate)
+//-Sop- -= -todo: :where('id, $id) -›delete():
+//- if
+    $data = todo::find($id);
+
+       if ($data['enddate'] < date()){
 
          $op = todo::where('id',$id)->delete();
 
@@ -161,6 +168,10 @@ class todoController extends Controller
           session()->flash('Message',$message);
 
           return redirect(url('/Blog'));
+
+    }else{
+           $message = "task expired";
+       }
 
     }
 }
